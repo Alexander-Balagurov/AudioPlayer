@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */; };
 		9998EA942B6EAC1E00C3F763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9998EA932B6EAC1E00C3F763 /* Assets.xcassets */; };
-		9998EA972B6EAC1E00C3F763 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9998EA962B6EAC1E00C3F763 /* Preview Assets.xcassets */; };
 		9998EAA12B6EAC1E00C3F763 /* AudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAA02B6EAC1E00C3F763 /* AudioPlayerTests.swift */; };
 		9998EAAB2B6EAC1E00C3F763 /* AudioPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAAA2B6EAC1E00C3F763 /* AudioPlayerUITests.swift */; };
 		9998EAAD2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAAC2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift */; };
@@ -18,6 +17,12 @@
 		9998EAC02B6EB5A000C3F763 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */; };
 		9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAC22B6EB70A00C3F763 /* AppFeature.swift */; };
 		9998EAC52B6EB85B00C3F763 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAC42B6EB85B00C3F763 /* AppView.swift */; };
+		9998EACD2B6EBB2A00C3F763 /* 04_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EAC82B6EBB2A00C3F763 /* 04_audio.m4a */; };
+		9998EACE2B6EBB2A00C3F763 /* 05_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EAC92B6EBB2A00C3F763 /* 05_audio.m4a */; };
+		9998EACF2B6EBB2A00C3F763 /* 01_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EACA2B6EBB2A00C3F763 /* 01_audio.m4a */; };
+		9998EAD02B6EBB2A00C3F763 /* 03_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EACB2B6EBB2A00C3F763 /* 03_audio.m4a */; };
+		9998EAD12B6EBB2A00C3F763 /* 02_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EACC2B6EBB2A00C3F763 /* 02_audio.m4a */; };
+		9998EAD32B6EBF4F00C3F763 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAD22B6EBF4F00C3F763 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +46,6 @@
 		9998EA8C2B6EAC1C00C3F763 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerApp.swift; sourceTree = "<group>"; };
 		9998EA932B6EAC1E00C3F763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9998EA962B6EAC1E00C3F763 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9998EA9C2B6EAC1E00C3F763 /* AudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998EAA02B6EAC1E00C3F763 /* AudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerTests.swift; sourceTree = "<group>"; };
 		9998EAA62B6EAC1E00C3F763 /* AudioPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +55,12 @@
 		9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		9998EAC22B6EB70A00C3F763 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		9998EAC42B6EB85B00C3F763 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		9998EAC82B6EBB2A00C3F763 /* 04_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04_audio.m4a; sourceTree = "<group>"; };
+		9998EAC92B6EBB2A00C3F763 /* 05_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 05_audio.m4a; sourceTree = "<group>"; };
+		9998EACA2B6EBB2A00C3F763 /* 01_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01_audio.m4a; sourceTree = "<group>"; };
+		9998EACB2B6EBB2A00C3F763 /* 03_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 03_audio.m4a; sourceTree = "<group>"; };
+		9998EACC2B6EBB2A00C3F763 /* 02_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02_audio.m4a; sourceTree = "<group>"; };
+		9998EAD22B6EBF4F00C3F763 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,18 +115,9 @@
 				9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */,
 				9998EAC12B6EB6FD00C3F763 /* AppFeature */,
 				9998EABC2B6EB57E00C3F763 /* AudioPlayerFeature */,
-				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
-				9998EA952B6EAC1E00C3F763 /* Preview Content */,
+				9998EAC72B6EBAFF00C3F763 /* Misc */,
 			);
 			path = AudioPlayer;
-			sourceTree = "<group>";
-		};
-		9998EA952B6EAC1E00C3F763 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				9998EA962B6EAC1E00C3F763 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		9998EA9F2B6EAC1E00C3F763 /* AudioPlayerTests */ = {
@@ -141,6 +142,7 @@
 			children = (
 				9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */,
 				9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */,
+				9998EAD22B6EBF4F00C3F763 /* Book.swift */,
 			);
 			path = AudioPlayerFeature;
 			sourceTree = "<group>";
@@ -152,6 +154,27 @@
 				9998EAC42B6EB85B00C3F763 /* AppView.swift */,
 			);
 			path = AppFeature;
+			sourceTree = "<group>";
+		};
+		9998EAC62B6EBAE200C3F763 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9998EACA2B6EBB2A00C3F763 /* 01_audio.m4a */,
+				9998EACC2B6EBB2A00C3F763 /* 02_audio.m4a */,
+				9998EACB2B6EBB2A00C3F763 /* 03_audio.m4a */,
+				9998EAC82B6EBB2A00C3F763 /* 04_audio.m4a */,
+				9998EAC92B6EBB2A00C3F763 /* 05_audio.m4a */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+		9998EAC72B6EBAFF00C3F763 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
+				9998EAC62B6EBAE200C3F763 /* AudioFiles */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +287,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9998EA972B6EAC1E00C3F763 /* Preview Assets.xcassets in Resources */,
+				9998EAD02B6EBB2A00C3F763 /* 03_audio.m4a in Resources */,
 				9998EA942B6EAC1E00C3F763 /* Assets.xcassets in Resources */,
+				9998EACF2B6EBB2A00C3F763 /* 01_audio.m4a in Resources */,
+				9998EACE2B6EBB2A00C3F763 /* 05_audio.m4a in Resources */,
+				9998EAD12B6EBB2A00C3F763 /* 02_audio.m4a in Resources */,
+				9998EACD2B6EBB2A00C3F763 /* 04_audio.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +319,7 @@
 			files = (
 				9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */,
 				9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */,
+				9998EAD32B6EBF4F00C3F763 /* Book.swift in Sources */,
 				9998EAC02B6EB5A000C3F763 /* AudioPlayerView.swift in Sources */,
 				9998EAC52B6EB85B00C3F763 /* AppView.swift in Sources */,
 				9998EABE2B6EB59500C3F763 /* AudioPlayerFeature.swift in Sources */,
@@ -457,7 +485,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Preview Content\"";
 				DEVELOPMENT_TEAM = 7QB942BUUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -486,7 +513,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Preview Content\"";
 				DEVELOPMENT_TEAM = 7QB942BUUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
