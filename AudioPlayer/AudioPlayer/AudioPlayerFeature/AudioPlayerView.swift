@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AudioPlayerView.swift
 //  AudioPlayer
 //
 //  Created by Alexander Balagurov on 03.02.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AudioPlayerView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AudioPlayerView()
 }

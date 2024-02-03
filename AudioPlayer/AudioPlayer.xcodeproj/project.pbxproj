@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */; };
-		9998EA922B6EAC1C00C3F763 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EA912B6EAC1C00C3F763 /* ContentView.swift */; };
 		9998EA942B6EAC1E00C3F763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9998EA932B6EAC1E00C3F763 /* Assets.xcassets */; };
 		9998EA972B6EAC1E00C3F763 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9998EA962B6EAC1E00C3F763 /* Preview Assets.xcassets */; };
 		9998EAA12B6EAC1E00C3F763 /* AudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAA02B6EAC1E00C3F763 /* AudioPlayerTests.swift */; };
 		9998EAAB2B6EAC1E00C3F763 /* AudioPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAAA2B6EAC1E00C3F763 /* AudioPlayerUITests.swift */; };
 		9998EAAD2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAAC2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift */; };
 		9998EABB2B6EB36800C3F763 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9998EABA2B6EB36800C3F763 /* ComposableArchitecture */; };
+		9998EABE2B6EB59500C3F763 /* AudioPlayerFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */; };
+		9998EAC02B6EB5A000C3F763 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */; };
+		9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAC22B6EB70A00C3F763 /* AppFeature.swift */; };
+		9998EAC52B6EB85B00C3F763 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAC42B6EB85B00C3F763 /* AppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 /* Begin PBXFileReference section */
 		9998EA8C2B6EAC1C00C3F763 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerApp.swift; sourceTree = "<group>"; };
-		9998EA912B6EAC1C00C3F763 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9998EA932B6EAC1E00C3F763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9998EA962B6EAC1E00C3F763 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9998EA9C2B6EAC1E00C3F763 /* AudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,10 @@
 		9998EAA62B6EAC1E00C3F763 /* AudioPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998EAAA2B6EAC1E00C3F763 /* AudioPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerUITests.swift; sourceTree = "<group>"; };
 		9998EAAC2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerFeature.swift; sourceTree = "<group>"; };
+		9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		9998EAC22B6EB70A00C3F763 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		9998EAC42B6EB85B00C3F763 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				9998EA8F2B6EAC1C00C3F763 /* AudioPlayerApp.swift */,
-				9998EA912B6EAC1C00C3F763 /* ContentView.swift */,
+				9998EAC12B6EB6FD00C3F763 /* AppFeature */,
+				9998EABC2B6EB57E00C3F763 /* AudioPlayerFeature */,
 				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
 				9998EA952B6EAC1E00C3F763 /* Preview Content */,
 			);
@@ -127,6 +134,24 @@
 				9998EAAC2B6EAC1E00C3F763 /* AudioPlayerUITestsLaunchTests.swift */,
 			);
 			path = AudioPlayerUITests;
+			sourceTree = "<group>";
+		};
+		9998EABC2B6EB57E00C3F763 /* AudioPlayerFeature */ = {
+			isa = PBXGroup;
+			children = (
+				9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */,
+				9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */,
+			);
+			path = AudioPlayerFeature;
+			sourceTree = "<group>";
+		};
+		9998EAC12B6EB6FD00C3F763 /* AppFeature */ = {
+			isa = PBXGroup;
+			children = (
+				9998EAC22B6EB70A00C3F763 /* AppFeature.swift */,
+				9998EAC42B6EB85B00C3F763 /* AppView.swift */,
+			);
+			path = AppFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9998EA922B6EAC1C00C3F763 /* ContentView.swift in Sources */,
+				9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */,
 				9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */,
+				9998EAC02B6EB5A000C3F763 /* AudioPlayerView.swift in Sources */,
+				9998EAC52B6EB85B00C3F763 /* AppView.swift in Sources */,
+				9998EABE2B6EB59500C3F763 /* AudioPlayerFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -412,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
