@@ -23,6 +23,10 @@
 		9998EAD02B6EBB2A00C3F763 /* 03_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EACB2B6EBB2A00C3F763 /* 03_audio.m4a */; };
 		9998EAD12B6EBB2A00C3F763 /* 02_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9998EACC2B6EBB2A00C3F763 /* 02_audio.m4a */; };
 		9998EAD32B6EBF4F00C3F763 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAD22B6EBF4F00C3F763 /* Book.swift */; };
+		9998EAD92B6ED2F200C3F763 /* AudioSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAD82B6ED2F200C3F763 /* AudioSliderView.swift */; };
+		9998EADC2B6EE16000C3F763 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */; };
+		9998EADE2B6EE66000C3F763 /* PlaybackSpeedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */; };
+		9998EAE02B6EF2A100C3F763 /* AudioControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		9998EACB2B6EBB2A00C3F763 /* 03_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 03_audio.m4a; sourceTree = "<group>"; };
 		9998EACC2B6EBB2A00C3F763 /* 02_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02_audio.m4a; sourceTree = "<group>"; };
 		9998EAD22B6EBF4F00C3F763 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		9998EAD82B6ED2F200C3F763 /* AudioSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSliderView.swift; sourceTree = "<group>"; };
+		9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSpeedButton.swift; sourceTree = "<group>"; };
+		9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 				9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */,
 				9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */,
 				9998EAD22B6EBF4F00C3F763 /* Book.swift */,
+				9998EAD72B6ED2E000C3F763 /* CustomViews */,
 			);
 			path = AudioPlayerFeature;
 			sourceTree = "<group>";
@@ -171,10 +180,29 @@
 		9998EAC72B6EBAFF00C3F763 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
+				9998EADA2B6EE13F00C3F763 /* Extensions */,
 				9998EAC62B6EBAE200C3F763 /* AudioFiles */,
+				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		9998EAD72B6ED2E000C3F763 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				9998EAD82B6ED2F200C3F763 /* AudioSliderView.swift */,
+				9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */,
+				9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		9998EADA2B6EE13F00C3F763 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +348,13 @@
 				9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */,
 				9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */,
 				9998EAD32B6EBF4F00C3F763 /* Book.swift in Sources */,
+				9998EADC2B6EE16000C3F763 /* TimeInterval+Extension.swift in Sources */,
 				9998EAC02B6EB5A000C3F763 /* AudioPlayerView.swift in Sources */,
 				9998EAC52B6EB85B00C3F763 /* AppView.swift in Sources */,
+				9998EADE2B6EE66000C3F763 /* PlaybackSpeedButton.swift in Sources */,
+				9998EAE02B6EF2A100C3F763 /* AudioControlView.swift in Sources */,
 				9998EABE2B6EB59500C3F763 /* AudioPlayerFeature.swift in Sources */,
+				9998EAD92B6ED2F200C3F763 /* AudioSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

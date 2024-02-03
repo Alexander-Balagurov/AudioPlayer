@@ -18,7 +18,7 @@ struct AppView: View {
     
     var body: some View {
         TabView {
-            AudioPlayerView()
+            AudioPlayerView(book: .mockBook)
                 .tabItem {
                     Text(verbatim: .audioPlayerTab)
                 }

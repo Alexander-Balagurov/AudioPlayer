@@ -8,7 +8,7 @@
 import Foundation
 
 private extension URL {
-    static let bookCover: Self = .init(string: "https://xp4stm90bvzr.frontroute.org/s02/images/audiobooks/3/5/9/4/6/audiobook-znak-chetyrjokh.jpg")!
+    static let bookCover: Self = .init(string: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781607102113/the-adventures-of-sherlock-holmes-and-other-stories-9781607102113_hr.jpg")!
 }
 
 struct Book {
