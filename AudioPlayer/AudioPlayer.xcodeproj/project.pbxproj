@@ -27,6 +27,7 @@
 		9998EADC2B6EE16000C3F763 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */; };
 		9998EADE2B6EE66000C3F763 /* PlaybackSpeedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */; };
 		9998EAE02B6EF2A100C3F763 /* AudioControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */; };
+		9998EAE42B6F98C000C3F763 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAE32B6F98C000C3F763 /* AudioPlayerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSpeedButton.swift; sourceTree = "<group>"; };
 		9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControlView.swift; sourceTree = "<group>"; };
+		9998EAE32B6F98C000C3F763 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,8 @@
 			children = (
 				9998EABD2B6EB59500C3F763 /* AudioPlayerFeature.swift */,
 				9998EABF2B6EB5A000C3F763 /* AudioPlayerView.swift */,
-				9998EAD22B6EBF4F00C3F763 /* Book.swift */,
+				9998EAE12B6F988700C3F763 /* Models */,
+				9998EAE22B6F989F00C3F763 /* Services */,
 				9998EAD72B6ED2E000C3F763 /* CustomViews */,
 			);
 			path = AudioPlayerFeature;
@@ -203,6 +206,22 @@
 				9998EADB2B6EE16000C3F763 /* TimeInterval+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9998EAE12B6F988700C3F763 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9998EAD22B6EBF4F00C3F763 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9998EAE22B6F989F00C3F763 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9998EAE32B6F98C000C3F763 /* AudioPlayerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */,
+				9998EAE42B6F98C000C3F763 /* AudioPlayerService.swift in Sources */,
 				9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */,
 				9998EAD32B6EBF4F00C3F763 /* Book.swift in Sources */,
 				9998EADC2B6EE16000C3F763 /* TimeInterval+Extension.swift in Sources */,

@@ -13,8 +13,7 @@ private extension EdgeInsets {
 
 enum AudioControlAction {
     
-    case play
-    case pause
+    case playToggle
     case fastForward
     case rewind
     case nextAudio
@@ -24,7 +23,7 @@ enum AudioControlAction {
 
 struct AudioControlView: View {
     
-    @Binding var isPlaying: Bool
+    var isPlaying: Bool
     let controlAction: (AudioControlAction) -> Void
     
     var body: some View {
@@ -46,7 +45,7 @@ struct AudioControlView: View {
             }
             
             Button {
-                controlAction(isPlaying ? .pause : .play)
+                controlAction(.playToggle)
             } label: {
                 Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                     .resizable()
@@ -76,5 +75,5 @@ struct AudioControlView: View {
 }
 
 #Preview {
-    AudioControlView(isPlaying: .constant(true), controlAction: { _ in })
+    AudioControlView(isPlaying: true, controlAction: { _ in })
 }

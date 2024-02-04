@@ -6,47 +6,69 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct AudioPlayerView: View {
     
-    let book: Book
+    let store: StoreOf<AudioPlayerFeature>
     @State var progress: Double = 0
     @State var playbackSpeedType: PlaybackSpeedType = .x1
-    @State var isPlaying: Bool = false
     
     var body: some View {
-        VStack {
-            AsyncImage(url: book.imageURL) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
-            } placeholder: {
-                ProgressView()
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            VStack {
+                AsyncImage(url: viewStore.book.imageURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                } placeholder: {
+                    ProgressView()
+                }
+                
+                Text(viewStore.currentChapter.title)
+                    .font(.headline)
+                
+                AudioSliderView(duration: 180, value: $progress)
+                
+                PlaybackSpeedButton(type: $playbackSpeedType)
+                
+                AudioControlView(isPlaying: viewStore.state.isPlaying) { action in
+                    self.handleAudioControlAction(viewStore: viewStore, action: action)
+                }
+                
+                Spacer(minLength: 50)
             }
-            
-            Text("Book Title")
-                .font(.headline)
-            
-            AudioSliderView(duration: 180, value: $progress)
-            
-            PlaybackSpeedButton(type: $playbackSpeedType)
-            
-            AudioControlView(isPlaying: $isPlaying) { action in
-                self.handleAudioControlAction(action)
+            .padding()
+            .background(Color.mint.opacity(0.1))
+            .onAppear {
+                viewStore.send(.viewAppeared)
             }
-            
-            Spacer(minLength: 50)
         }
-        .padding()
-        .background(Color.mint.opacity(0.1))
     }
     
-    func handleAudioControlAction(_ action: AudioControlAction) {
-        
+    func handleAudioControlAction(
+        viewStore: ViewStore<AudioPlayerFeature.State, AudioPlayerFeature.Action>,
+        action: AudioControlAction
+    ) {
+        switch action {
+        case .playToggle:
+            print(Unmanaged.passUnretained(viewStore).toOpaque())
+            viewStore.send(.playButtonToggled)
+        case .fastForward:
+            break
+        case .rewind:
+            break
+        case .nextAudio:
+            break
+        case .previousAudio:
+            break
+        }
     }
 }
 
 #Preview {
-    AudioPlayerView(book: .mockBook)
+    AudioPlayerView(store: Store(initialState: AudioPlayerFeature.State()) {
+        AudioPlayerFeature()
+    })
 }

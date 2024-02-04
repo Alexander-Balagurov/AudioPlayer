@@ -11,15 +11,17 @@ private extension URL {
     static let bookCover: Self = .init(string: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781607102113/the-adventures-of-sherlock-holmes-and-other-stories-9781607102113_hr.jpg")!
 }
 
-struct Book {
+struct Book: Equatable {
     
+    let id: UUID
     let imageURL: URL
     let chapters: [Chapter]
     
 }
 
-struct Chapter {
+struct Chapter: Equatable {
     
+    let id: UUID
     let title: String
     let audioURL: URL
     
@@ -28,6 +30,7 @@ struct Chapter {
 extension Book {
     
     static let mockBook: Self = .init(
+        id: .init(),
         imageURL: .bookCover,
         chapters: .mockChapters
     )
@@ -44,7 +47,7 @@ private extension Array {
                 continue
             }
             print(audioURL)
-            chapters.append(.init(title: "\(i) title", audioURL: audioURL))
+            chapters.append(.init(id: .init(), title: "\(i) title", audioURL: audioURL))
         }
         
         return chapters

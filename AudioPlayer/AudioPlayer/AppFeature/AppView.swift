@@ -9,7 +9,8 @@ import ComposableArchitecture
 import SwiftUI
 
 private extension String {
-    static let audioPlayerTab = "Player"
+    static let audioPlayerTab = "Audio Player"
+    static let audioPlayerImageName = "book.circle.fill"
 }
 
 struct AppView: View {
@@ -18,9 +19,12 @@ struct AppView: View {
     
     var body: some View {
         TabView {
-            AudioPlayerView(book: .mockBook)
+            AudioPlayerView(store: store.scope(state: \.audioPlayerTab, action: \.audioPlayerTab))
                 .tabItem {
-                    Text(verbatim: .audioPlayerTab)
+                    VStack {
+                        Image(systemName: .audioPlayerImageName)
+                        Text(verbatim: .audioPlayerTab)
+                    }
                 }
         }
     }
