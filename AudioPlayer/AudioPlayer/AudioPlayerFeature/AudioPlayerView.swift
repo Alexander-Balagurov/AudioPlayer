@@ -10,14 +10,11 @@ import ComposableArchitecture
 
 struct AudioPlayerView: View {
     
-    let store: StoreOf<AudioPlayerFeature>
-    @State var progress: Double = 0
-    @State var playbackSpeedType: PlaybackSpeedType = .x1
-    
+    @Perception.Bindable var store: StoreOf<AudioPlayerFeature>
     var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
+        GeometryReader { geometry in
             VStack {
-                AsyncImage(url: viewStore.book.imageURL) { image in
+                AsyncImage(url: store.book.imageURL) { image in
                     image
                         .resizable()
                         .scaledToFit()
@@ -25,40 +22,42 @@ struct AudioPlayerView: View {
                 } placeholder: {
                     ProgressView()
                 }
+                .frame(height: geometry.size.height * 0.55)
                 
-                Text(viewStore.currentChapter.title)
+                Text(store.currentChapter.title)
                     .font(.headline)
                 
-                AudioSliderView(duration: 180, value: $progress)
+                AudioSliderView(
+                    duration: store.duration,
+                    currentProgress: $store.progress.sending(\.sliderValueChanged)
+                )
                 
-                PlaybackSpeedButton(type: $playbackSpeedType)
-                
-                AudioControlView(isPlaying: viewStore.state.isPlaying) { action in
-                    self.handleAudioControlAction(viewStore: viewStore, action: action)
+                PlaybackSpeedButton(type: store.playbackSpeedType) {
+                    self.store.send(.playbackSpeedChanged)
                 }
                 
-                Spacer(minLength: 50)
+                AudioControlView(isPlaying: store.state.isPlaying) { action in
+                    self.handleAudioControlAction(action: action)
+                }
+                
+                Spacer(minLength: geometry.size.height * 0.2)
             }
             .padding()
             .background(Color.mint.opacity(0.1))
             .onAppear {
-                viewStore.send(.viewAppeared)
+                store.send(.viewAppeared)
             }
         }
     }
     
-    func handleAudioControlAction(
-        viewStore: ViewStore<AudioPlayerFeature.State, AudioPlayerFeature.Action>,
-        action: AudioControlAction
-    ) {
+    func handleAudioControlAction(action: AudioControlAction) {
         switch action {
         case .playToggle:
-            print(Unmanaged.passUnretained(viewStore).toOpaque())
-            viewStore.send(.playButtonToggled)
+            store.send(.playButtonToggled)
         case .fastForward:
-            break
+            store.send(.fastForwardButtonTapped)
         case .rewind:
-            break
+            store.send(.rewindButtonTapped)
         case .nextAudio:
             break
         case .previousAudio:

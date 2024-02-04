@@ -10,16 +10,15 @@ import SwiftUI
 struct AudioSliderView: View {
     
     let duration: TimeInterval
-    @State var currentProgress: TimeInterval = 0
-    @Binding var value: Double
+    @Binding var currentProgress: TimeInterval
     
     var body: some View {
         HStack {
-            Text(currentProgress.stringFromTimeInterval())
-            Slider(value: $value) { changed in
-                currentProgress = value * duration
-            }
+            Text((duration * currentProgress).stringFromTimeInterval())
+                .monospacedDigit()
+            Slider(value: $currentProgress)
             Text(duration.stringFromTimeInterval())
+                .monospacedDigit()
         }
         .padding()
     }
@@ -27,5 +26,5 @@ struct AudioSliderView: View {
 }
 
 #Preview {
-    return AudioSliderView(duration: 180, value: .constant(0.3))
+    return AudioSliderView(duration: 180, currentProgress: .constant(0))
 }

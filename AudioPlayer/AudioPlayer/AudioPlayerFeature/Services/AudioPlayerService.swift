@@ -15,8 +15,12 @@ struct AudioPlayerServiceInterface {
     var play: () -> Void
     var fastForward: () -> Void
     var rewind: () -> Void
-    var trackDuration: () -> TimeInterval?
-    var seek: (Float) -> Void
+    var seek: (TimeInterval) -> Void
+    var trackDuration: () -> TimeInterval
+    var currentPlaybackTime: () -> TimeInterval
+    var currentProgress: () -> Double
+    var updateRate: (PlaybackSpeedType) -> Void
+    var playbackSpeed: () -> Float
     
 }
 
@@ -24,10 +28,6 @@ struct AudioPlayerServiceInterface {
 final class AudioPlayerService: NSObject {
     
     private var player: AVAudioPlayer?
-    
-    var currentPlaybackTime: TimeInterval {
-        player?.currentTime ?? 0
-    }
     
     override init() {
         do {
@@ -44,9 +44,9 @@ final class AudioPlayerService: NSObject {
     }
     
     func prepareToPlay(trackURL: URL) {
-        print(#function)
         do {
             player = try AVAudioPlayer(contentsOf: trackURL)
+            player?.enableRate = true
             player?.prepareToPlay()
         } catch {
             print("Error playing audio: \(error.localizedDescription)")
@@ -69,15 +69,30 @@ final class AudioPlayerService: NSObject {
         player?.currentTime -= 5
     }
     
-    func trackDuration() -> TimeInterval? {
-        player?.duration
+    func seek(to progress: TimeInterval) {
+        player?.currentTime = trackDuration() * progress
     }
     
-    func seek(to progress: Float) {
-        guard let duration = trackDuration() else { return }
+    func currentPlaybackTime() -> TimeInterval {
+        player?.currentTime ?? 0
+    }
+    
+    func trackDuration() -> TimeInterval {
+        player?.duration ?? 0
+    }
+    
+    func currentProgress() -> Double {
+        guard let player else { return 0 }
         
-        let timeToSeek = duration * Double(progress)
-        player?.currentTime = timeToSeek
+        return player.currentTime / player.duration
+    }
+    
+    func updateRate(type: PlaybackSpeedType) {
+        player?.rate = type.rateValue
+    }
+    
+    func playbackSpeed() -> Float {
+        player?.rate ?? 1
     }
     
 }
@@ -92,8 +107,12 @@ extension AudioPlayerServiceInterface: DependencyKey {
             play: player.play,
             fastForward: player.fastForward,
             rewind: player.rewind,
+            seek: player.seek(to:),
             trackDuration: player.trackDuration,
-            seek: player.seek(to:)
+            currentPlaybackTime: player.currentPlaybackTime,
+            currentProgress: player.currentProgress,
+            updateRate: player.updateRate(type:),
+            playbackSpeed: player.playbackSpeed
         )
     }
     

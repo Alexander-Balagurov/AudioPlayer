@@ -17,19 +17,23 @@ enum PlaybackSpeedType: Int, CaseIterable {
     case x2
     
     var title: String {
+        "\(rateValue)x speed"
+    }
+    
+    var rateValue: Float {
         switch self {
         case .x05:
-            return "0.5x speed"
+            return 0.5
         case .x075:
-            return "0.75x speed"
+            return 0.75
         case .x1:
-            return "1x speed"
+            return 1
         case .x125:
-            return "1.25x speed"
+            return 1.25
         case .x15:
-            return "1.5x speed"
+            return 1.5
         case .x2:
-            return "2x speed"
+            return 2
         }
     }
     
@@ -40,11 +44,12 @@ enum PlaybackSpeedType: Int, CaseIterable {
 
 struct PlaybackSpeedButton: View {
     
-    @Binding var type: PlaybackSpeedType
+    let type: PlaybackSpeedType
+    let onPlaybackSpeedButtonTap: () -> Void
     
     var body: some View {
         Button {
-            type.nextSpeed()
+            onPlaybackSpeedButtonTap()
         } label: {
             Text(type.title)
                 .foregroundStyle(.black)
@@ -55,5 +60,5 @@ struct PlaybackSpeedButton: View {
 }
 
 #Preview {
-    PlaybackSpeedButton(type: .constant(.x1))
+    PlaybackSpeedButton(type: .x1) {}
 }
