@@ -13,6 +13,7 @@ struct AudioPlayerFeature {
     
     @ObservableState
     struct State: Equatable {
+        
         let book: Book
         var currentChapter: Chapter
         var isPlaying = false
@@ -24,18 +25,20 @@ struct AudioPlayerFeature {
             self.book = book
             self.currentChapter = currentChapter ?? book.chapters.first!
         }
+        
     }
     
     enum Action {
+        
         case viewAppeared
         case playButtonToggled
-        case nextChapterButtonTapped
-        case previousChapterButtonTapped
+        case nextChapterButtonTapped(AudioControlAction.NextAudioType)
         case fastForwardButtonTapped
         case rewindButtonTapped
         case sliderValueChanged(TimeInterval)
         case playbackSpeedChanged
         case timerTick
+        
     }
     
     enum CancelID { case timer }
@@ -65,12 +68,18 @@ struct AudioPlayerFeature {
                 } else {
                     return .cancel(id: CancelID.timer)
                 }
-            case .nextChapterButtonTapped:
-                return .none
-
-            case .previousChapterButtonTapped:
-                return .none
-
+            case .nextChapterButtonTapped(let type):
+                guard let nextChapter = state.book.nextChapter(currentIndex: state.currentChapter.index, type: type) else { return .none }
+                state.currentChapter = nextChapter
+                audioPlayerService.prepareToPlay(state.currentChapter.audioURL)
+                audioPlayerService.updateRate(state.playbackSpeedType)
+                state.duration = audioPlayerService.trackDuration()
+                state.progress = 0
+                state.isPlaying.toggle()
+                
+                return .run { send in
+                    await send(.playButtonToggled)
+                }
             case .fastForwardButtonTapped:
                 audioPlayerService.fastForward()
                 state.progress = audioPlayerService.currentProgress()
@@ -88,9 +97,22 @@ struct AudioPlayerFeature {
                 audioPlayerService.updateRate(state.playbackSpeedType)
                 return .none
             case .timerTick:
-                state.progress = audioPlayerService.currentProgress()
-                return .none
+                let newProgress = audioPlayerService.currentProgress()
+                let isAudioFinished = state.progress != 0 && newProgress == 0
+                state.progress = newProgress
+                if isAudioFinished {
+                    guard state.currentChapter.index != state.book.chapters.count else {
+                        state.isPlaying = false
+                        return .cancel(id: CancelID.timer)
+                    }
+                    return .run { send in
+                        await send(.nextChapterButtonTapped(.next))
+                    }
+                } else {
+                    return state.isPlaying ? .none : .cancel(id: CancelID.timer)
+                }
             }
         }
     }
+    
 }

@@ -28,6 +28,7 @@
 		9998EADE2B6EE66000C3F763 /* PlaybackSpeedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */; };
 		9998EAE02B6EF2A100C3F763 /* AudioControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */; };
 		9998EAE42B6F98C000C3F763 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998EAE32B6F98C000C3F763 /* AudioPlayerService.swift */; };
+		99ED7FF92B71625A0083AF83 /* UIDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ED7FF82B71625A0083AF83 /* UIDimension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		9998EADD2B6EE66000C3F763 /* PlaybackSpeedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSpeedButton.swift; sourceTree = "<group>"; };
 		9998EADF2B6EF2A100C3F763 /* AudioControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControlView.swift; sourceTree = "<group>"; };
 		9998EAE32B6F98C000C3F763 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
+		99ED7FF82B71625A0083AF83 /* UIDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDimension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				9998EADA2B6EE13F00C3F763 /* Extensions */,
 				9998EAC62B6EBAE200C3F763 /* AudioFiles */,
 				9998EA932B6EAC1E00C3F763 /* Assets.xcassets */,
+				99ED7FF82B71625A0083AF83 /* UIDimension.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99ED7FF92B71625A0083AF83 /* UIDimension.swift in Sources */,
 				9998EAC32B6EB70A00C3F763 /* AppFeature.swift in Sources */,
 				9998EAE42B6F98C000C3F763 /* AudioPlayerService.swift in Sources */,
 				9998EA902B6EAC1C00C3F763 /* AudioPlayerApp.swift in Sources */,

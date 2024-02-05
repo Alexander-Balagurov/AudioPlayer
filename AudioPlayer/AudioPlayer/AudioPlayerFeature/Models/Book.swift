@@ -8,7 +8,9 @@
 import Foundation
 
 private extension URL {
+    
     static let bookCover: Self = .init(string: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781607102113/the-adventures-of-sherlock-holmes-and-other-stories-9781607102113_hr.jpg")!
+    
 }
 
 struct Book: Equatable {
@@ -22,6 +24,7 @@ struct Book: Equatable {
 struct Chapter: Equatable {
     
     let id: UUID
+    let index: Int
     let title: String
     let audioURL: URL
     
@@ -35,6 +38,19 @@ extension Book {
         chapters: .mockChapters
     )
     
+    func nextChapter(currentIndex: Int, type: AudioControlAction.NextAudioType) -> Chapter? {
+        let nextChapterIndex: Int
+        switch type {
+        case .next:
+            nextChapterIndex = min(currentIndex + 1, chapters.count)
+        case .previous:
+            nextChapterIndex = max(currentIndex - 1, 1)
+        }
+        let nextChapter = chapters.first { $0.index == nextChapterIndex }
+        
+        return nextChapter
+    }
+    
 }
 
 private extension Array {
@@ -46,8 +62,7 @@ private extension Array {
                 print("Audio file not found.")
                 continue
             }
-            print(audioURL)
-            chapters.append(.init(id: .init(), title: "\(i) title", audioURL: audioURL))
+            chapters.append(.init(id: .init(), index: i, title: "\(i) title", audioURL: audioURL))
         }
         
         return chapters

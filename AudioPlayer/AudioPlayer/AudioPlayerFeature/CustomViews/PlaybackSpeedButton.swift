@@ -40,6 +40,7 @@ enum PlaybackSpeedType: Int, CaseIterable {
     mutating func nextSpeed() {
         self = .init(rawValue: (rawValue + 1) % PlaybackSpeedType.allCases.count) ?? .x1
     }
+    
 }
 
 struct PlaybackSpeedButton: View {

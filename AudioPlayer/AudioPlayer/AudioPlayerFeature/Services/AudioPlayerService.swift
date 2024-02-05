@@ -17,19 +17,17 @@ struct AudioPlayerServiceInterface {
     var rewind: () -> Void
     var seek: (TimeInterval) -> Void
     var trackDuration: () -> TimeInterval
-    var currentPlaybackTime: () -> TimeInterval
     var currentProgress: () -> Double
     var updateRate: (PlaybackSpeedType) -> Void
     var playbackSpeed: () -> Float
     
 }
 
-
-final class AudioPlayerService: NSObject {
+final class AudioPlayerService {
     
     private var player: AVAudioPlayer?
     
-    override init() {
+    init() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
             try audioSession.setCategory(.playback, mode: .default, options: [])
@@ -62,7 +60,8 @@ final class AudioPlayerService: NSObject {
     }
     
     func fastForward() {
-        player?.currentTime += 10
+        guard let player else { return }
+        player.currentTime = min(player.currentTime + 10, trackDuration() - 0.1)
     }
 
     func rewind() {
@@ -70,11 +69,7 @@ final class AudioPlayerService: NSObject {
     }
     
     func seek(to progress: TimeInterval) {
-        player?.currentTime = trackDuration() * progress
-    }
-    
-    func currentPlaybackTime() -> TimeInterval {
-        player?.currentTime ?? 0
+        player?.currentTime = trackDuration() * progress - 0.1
     }
     
     func trackDuration() -> TimeInterval {
@@ -109,7 +104,6 @@ extension AudioPlayerServiceInterface: DependencyKey {
             rewind: player.rewind,
             seek: player.seek(to:),
             trackDuration: player.trackDuration,
-            currentPlaybackTime: player.currentPlaybackTime,
             currentProgress: player.currentProgress,
             updateRate: player.updateRate(type:),
             playbackSpeed: player.playbackSpeed

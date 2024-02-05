@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 @main
 struct AudioPlayerApp: App {
+    
     static let store = Store(initialState: AppFeature.State()) {
         AppFeature()
             ._printChanges()
@@ -20,4 +21,5 @@ struct AudioPlayerApp: App {
             AppView(store: AudioPlayerApp.store)
         }
     }
+    
 }
