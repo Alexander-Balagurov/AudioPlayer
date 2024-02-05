@@ -83,7 +83,7 @@ final class AudioPlayerService {
     }
     
     func updateRate(type: PlaybackSpeedType) {
-        player?.rate = type.rateValue
+        player?.rate = type.rawValue
     }
     
     func playbackSpeed() -> Float {

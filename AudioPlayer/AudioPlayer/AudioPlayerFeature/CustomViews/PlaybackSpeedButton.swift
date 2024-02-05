@@ -7,38 +7,26 @@
 
 import SwiftUI
 
-enum PlaybackSpeedType: Int, CaseIterable {
+enum PlaybackSpeedType: Float, CaseIterable {
     
-    case x05
-    case x075
-    case x1
-    case x125
-    case x15
-    case x2
+    case x05 = 0.5
+    case x075 = 0.75
+    case x1 = 1
+    case x125 = 1.25
+    case x15 = 1.5
+    case x2 = 2
     
     var title: String {
-        "\(rateValue)x speed"
-    }
-    
-    var rateValue: Float {
-        switch self {
-        case .x05:
-            return 0.5
-        case .x075:
-            return 0.75
-        case .x1:
-            return 1
-        case .x125:
-            return 1.25
-        case .x15:
-            return 1.5
-        case .x2:
-            return 2
-        }
+        "\(rawValue)x speed"
     }
     
     mutating func nextSpeed() {
-        self = .init(rawValue: (rawValue + 1) % PlaybackSpeedType.allCases.count) ?? .x1
+        guard let index = PlaybackSpeedType.allCases.firstIndex(of: self),
+              index + 1 < PlaybackSpeedType.allCases.count else {
+            self = .x05
+            return
+        }
+        self = PlaybackSpeedType.allCases[index + 1]
     }
     
 }

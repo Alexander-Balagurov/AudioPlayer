@@ -57,8 +57,8 @@ private extension Array {
     
     static var mockChapters: [Chapter] {
         var chapters: [Chapter] = []
-        for i in 1...5 {
-            guard let audioURL = Bundle.main.url(forResource: "0\(i)_audio", withExtension: "m4a") else {
+        for i in 1...19 {
+            guard let audioURL = Bundle.main.url(forResource: "\(i)_audio", withExtension: "mp3") else {
                 print("Audio file not found.")
                 continue
             }
