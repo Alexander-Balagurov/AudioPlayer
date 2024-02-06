@@ -5,31 +5,54 @@
 //  Created by Alexander Balagurov on 03.02.2024.
 //
 
+import ComposableArchitecture
 import XCTest
 @testable import AudioPlayer
 
+@MainActor
 final class AudioPlayerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testFirstPlayAndPause() async {
+        let clock = TestClock()
+        let store = TestStore(initialState: AudioPlayerFeature.State()) {
+            AudioPlayerFeature()
+        } withDependencies: {
+            $0.audioPlayerService = .testValue
+            $0.continuousClock = clock
+        }
+        
+        await store.send(.viewAppeared) {
+            $0.duration = 10
+        }
+        await store.send(.playButtonToggled) {
+            $0.isPlaying = true
+        }
+        await clock.advance(by: .milliseconds(500))
+        await store.receive(\.timerTick) {
+            $0.progress = 0.5
+        }
+        await store.send(.playButtonToggled) {
+            $0.isPlaying = false
+        }
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testNextChapterTapped() async {
+        let clock = TestClock()
+        let store = TestStore(initialState: AudioPlayerFeature.State()) {
+            AudioPlayerFeature()
+        } withDependencies: {
+            $0.audioPlayerService = .testValue
+            $0.continuousClock = clock
+        }
+        
+        await store.send(.nextChapterButtonTapped(.next)) {
+            let nextChapter = $0.book.nextChapter(currentIndex: $0.currentChapter.index, type: .next)
+            $0.currentChapter = nextChapter!
+            $0.duration = 10
+            $0.isPlaying = !$0.isPlaying
+        }
+        await store.receive(\.playButtonToggled) {
+            $0.isPlaying = !$0.isPlaying
         }
     }
 

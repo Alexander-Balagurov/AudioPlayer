@@ -110,6 +110,22 @@ extension AudioPlayerServiceInterface: DependencyKey {
         )
     }
     
+    //TODO: Fill here accordingly to mock test values
+    static var testValue: AudioPlayerServiceInterface {
+        return AudioPlayerServiceInterface(
+            prepareToPlay: { _ in },
+            pause: {},
+            play: {},
+            fastForward: {},
+            rewind: {},
+            seek: { _ in },
+            trackDuration: { 10 },
+            currentProgress: { 0.5 },
+            updateRate: { _ in },
+            playbackSpeed: { 1 }
+        )
+    }
+    
 }
 
 extension DependencyValues {
