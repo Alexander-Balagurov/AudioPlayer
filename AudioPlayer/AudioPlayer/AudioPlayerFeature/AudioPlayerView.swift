@@ -57,9 +57,11 @@ struct AudioPlayerView: View {
                         amount: store.book.chapters.count
                     )
                 )
+                .foregroundStyle(Color.textColor)
                 .font(.footnote)
                 
                 Text(store.currentChapter.title)
+                    .foregroundStyle(Color.textColor)
                     .font(.headline)
                     .padding(.chapterTitleEdgeInsets)
                 
@@ -69,21 +71,20 @@ struct AudioPlayerView: View {
                 )
                 
                 PlaybackSpeedButton(type: store.playbackSpeedType) {
-                    self.store.send(.playbackSpeedChanged)
+                    store.send(.playbackSpeedChanged)
                 }
                 
                 AudioControlView(
                     isPlaying: store.state.isPlaying,
                     isNextEnabled: store.currentChapter.index != store.book.chapters.count,
-                    isPreviousEnabled: store.currentChapter.index != 1
-                ) { action in
-                    self.handleAudioControlAction(action: action)
-                }
+                    isPreviousEnabled: store.currentChapter.index != 1,
+                    controlAction: handleAudioControlAction(action:)
+                )
                 
                 Spacer(minLength: geometry.size.height * .spacerHeightMultiplier)
             }
             .padding()
-            .background(Color.mint.opacity(0.1))
+            .background(Color.backgroundColor)
             .onAppear {
                 store.send(.viewAppeared)
             }

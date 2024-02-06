@@ -47,59 +47,59 @@ enum AudioControlAction {
 
 struct AudioControlView: View {
     
-    var isPlaying: Bool
+    let isPlaying: Bool
     let isNextEnabled: Bool
     let isPreviousEnabled: Bool
     let controlAction: (AudioControlAction) -> Void
     
     var body: some View {
         HStack(spacing: .buttonsSpacing) {
-            Button {
-                controlAction(.nextAudio(.previous))
-            } label: {
-                Image(systemName: "backward.end.fill")
-                    .resizable()
-                    .frame(width: .defaultIconSide, height: .defaultIconSide)
-            }
-            .disabled(!isPreviousEnabled)
-            .opacity(isPreviousEnabled ? 1 : .disabledOpacity)
             
-            Button {
-                controlAction(.rewind)
-            } label: {
-                Image(systemName: "gobackward.5")
-                    .resizable()
-                    .frame(width: .defaultIconSide, height: .defaultIconSide)
-            }
+            button(for: .nextAudio(.previous))
+                .disabled(!isPreviousEnabled)
+                .opacity(isPreviousEnabled ? 1 : .disabledOpacity)
             
-            Button {
-                controlAction(.playToggle)
-            } label: {
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
-                    .resizable()
-                    .frame(width: .defaultIconSide, height: .defaultIconSide)
-            }
+            button(for: .rewind)
+            button(for: .playToggle)
+            button(for: .fastForward)
             
-            Button {
-                controlAction(.fastForward)
-            } label: {
-                Image(systemName: "goforward.10")
-                    .resizable()
-                    .frame(width: .defaultIconSide, height: .defaultIconSide)
-            }
-            
-            Button {
-                controlAction(.nextAudio(.next))
-            } label: {
-                Image(systemName: "forward.end.fill")
-                    .resizable()
-                    .frame(width: .defaultIconSide, height: .defaultIconSide)
-            }
-            .disabled(!isNextEnabled)
-            .opacity(isNextEnabled ? 1 : .disabledOpacity)
+            button(for: .nextAudio(.next))
+                .disabled(!isNextEnabled)
+                .opacity(isNextEnabled ? 1 : .disabledOpacity)
         }
         .foregroundStyle(.black)
         .padding(.audioControlViewEdgeInsets)
+        
+    }
+    
+}
+
+private extension AudioControlView {
+    
+    func button(for action: AudioControlAction) -> some View {
+        Button {
+            controlAction(action)
+        } label: {
+            image(for: action)
+        }
+    }
+    
+    func image(for action: AudioControlAction) -> some View {
+        let systemName: String
+        switch action {
+        case .playToggle:
+            systemName = isPlaying ? "pause.fill" : "play.fill"
+        case .fastForward:
+            systemName = "goforward.10"
+        case .rewind:
+            systemName = "gobackward.5"
+        case .nextAudio(let type):
+            systemName = type == .next ? "forward.end.fill" : "backward.end.fill"
+        }
+        
+        return Image(systemName: systemName)
+            .resizable()
+            .frame(width: .defaultIconSide, height: .defaultIconSide)
     }
     
 }

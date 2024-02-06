@@ -15,9 +15,11 @@ struct AudioSliderView: View {
     var body: some View {
         HStack {
             Text((duration * currentProgress).stringFromTimeInterval())
+                .foregroundStyle(Color.textColor)
                 .monospacedDigit()
             Slider(value: $currentProgress)
             Text(duration.stringFromTimeInterval())
+                .foregroundStyle(Color.textColor)
                 .monospacedDigit()
         }
         .padding()
